@@ -524,3 +524,8 @@ pprint (cljs.pprint)}}"))))
 (And "^I update artifact version to \"\\([^\"]+\\)\"$"
   (lambda (version)
     (cljr-update-project-dependency version)))
+
+(And "^I start cider$"
+     (lambda (callback)
+       (cider-jack-in)
+       (callback "done")))

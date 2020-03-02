@@ -17,6 +17,7 @@
 (require 'espuds)
 (require 'ert)
 (require 's)
+(require 'cl)
 
 (Setup
  ;; Used in cljr--maybe-eval-ns-form
@@ -50,10 +51,18 @@
           (kill-buffer))))))
 
 (Before
- )
+ (setq cljr-project-clean-prompt nil)
+ (message "prompt:%s" cljr-project-clean-prompt)
+)
 
 (After
- (kill-all-buffers-dont-ask))
+ (message "After...%s"
+          (buffer-list))
+ (switch-to-buffer "*Minibuf-1*")
+ (message "buffEr: %s" (buffer-string))
+
+ ;; (kill-all-buffers-dont-ask)
+ )
 
 (Teardown
  ;; After when everything has been run

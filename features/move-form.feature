@@ -331,6 +331,7 @@ Feature: Move forms
     (defn doit [x]
       (str/join (st/union '("a" "b")))
       (t/really-do-it x))
+
     """
     And the cursor is inside the first defn form
     And I start an action chain
